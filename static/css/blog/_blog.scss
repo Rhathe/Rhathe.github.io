@@ -1,0 +1,146 @@
+$gbColor: #E6E7E8;
+$screenColor: #F8F8F8;
+$bezelColor: #808285;
+
+.blog {
+	@include stretch-height;
+	text-align: center;
+	font-size: 16px;
+	font-family: 'Open Sans', 'Sans Serif';
+	background: $gbColor;
+	padding: 20px;
+
+	a {
+		color: black;
+	}
+
+	#content {
+		background: $bezelColor;
+		border-radius: 20px;
+		border-bottom-right-radius: 60px;
+		padding: 40px 80px;
+	}
+
+	.battery {
+		position: absolute;
+		left: 0;
+		width: calc((100% - 1000px) / 2);
+		min-width: 80px;
+		top: 200px;
+		color: $gbColor;
+		text-transform: uppercase;
+		@include center-flex();
+		flex-direction: column;
+
+		& > div {
+			width: 80px;
+		}
+
+		.circle {
+			margin-left: 30px;
+			margin-bottom: 8px;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background: red;
+		}
+	}
+
+	.dot-matrix {
+		height: 40px;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 17px 20px;
+
+		div:first-child {
+			border-top: 1px solid darkred;
+			border-bottom: 1px solid navy;
+			height: 100%;
+		}
+
+		div:last-child {
+			color: $gbColor;
+			text-transform: uppercase;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			height: 100%;
+			width: 300px;
+			margin-left: -150px;
+			background: $bezelColor;
+			@include center-flex();
+		}
+	}
+
+	.screen {
+		display: flex;
+		flex: 1;
+		margin: 0;
+		min-height: 100%;
+		max-width: 1000px;
+		background: black;
+		padding-left: 15px;
+	}
+
+	.blog-nav {
+		width: 200px;
+	}
+
+	.blog-header, article {
+		margin-bottom: 30px;
+		padding-bottom: 5px;
+	}
+
+	article {
+		padding-bottom: 20px;
+	}
+
+	.date {
+		color: gray;
+		margin-bottom: 30px;
+		font-size: 14px;
+	}
+
+	header {
+		font-size: 40px;
+		font-weight: bold;
+	}
+
+	.blog-nav {
+		padding: 15px;
+
+		& > div {
+			background: $screenColor;
+			border: 8px double black;
+			border-radius: 10px;
+			display: flex;
+			flex-direction: column;
+			padding: 5px 0;
+
+			&, button {
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+
+			button, a {
+				padding: 5px 0;
+			}
+		}
+	}
+
+	.logout {
+		@include not-button;
+	}
+
+	@import 'content';
+}
+
+#blog {
+	.blog-header, article {
+		border-bottom: 1px solid black;
+	}
+}
+
+@import 'edit';

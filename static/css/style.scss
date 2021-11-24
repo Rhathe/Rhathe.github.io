@@ -1,0 +1,76 @@
+@import 'bourbon/bourbon';
+@import 'mixins';
+
+$phone: 480px;
+
+@include keyframes(stop) {
+	0% {}
+	100% {}
+}
+
+a, div, span {
+	@include browser(box-sizing,border-box);
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+html, body {
+	@include browser(box-sizing,border-box);
+}
+
+html {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+#content {
+	margin: 0px auto 0px auto;
+	padding: 40px 0 20px 0;
+	height: 100%;
+	@include browser(box-sizing,border-box);
+}
+
+#footer {
+	display: none;
+	margin: 0px auto 0px auto;
+	padding: 2px 0 10px 0;
+	text-align: center;
+	width: 100%;
+}
+
+.shadow {
+	display: none;
+	border-radius: 50%;
+	width: 96%;
+	height: 5px;
+	position: absolute;
+	box-shadow: 0 20px 10px blue;
+	@media (max-width: $phone) {
+		box-shadow: 0 10px 10px blue;
+	}
+}
+
+.hide {
+	display: none;
+}
+
+.clear {
+	clear: both;
+}
+
+@import 'code/main';
+@import 'index';
+@import 'projects';
+@import 'about';
+@import 'blog/blog';

@@ -1,0 +1,210 @@
+$celldim: 70px;
+$pccBorder: 1px;
+$pccPadding: 2px;
+$cellsPerRow: 8;
+$rowWidth: $celldim*$cellsPerRow+$pccBorder*2+$pccPadding*2;
+
+@include keyframes(sprites) {
+	0% {@include transform(rotateY(-50deg));}
+	100% {@include transform(rotateY(50deg));}
+}
+
+a {
+	color: white;
+}
+
+.hover {
+	@include transform(scale(1.1,1.1));	
+	border: solid 5px red !important;
+}
+
+#projects {
+	@include background(linear-gradient(black,navy,black));
+	font-family: 'Open Sans', 'Sans Serif';
+
+	#content {
+		min-height: 100%;
+		position: relative;
+		display: table;
+		padding-top: 0px;
+	}
+
+	.project-info-container-row {
+		display: table-row;
+	}
+
+	.project-info-container-cell {
+		display: table-cell;
+		padding: 10px 0 10px 0;
+		height: 100%;
+	}
+
+	.project-info-container {
+		height: 100%;
+	}
+
+	.project-info {
+		margin: auto;
+		max-width: $rowWidth;
+		min-height: 100%;
+		height: 200px;
+		width: 100%;
+		max-height: 200px;
+		border: solid 4px navy;
+		padding: 10px;
+		background: black;
+		color: white;
+		border-radius: 5px;
+		text-align: justify;
+		overflow: auto;
+
+		iframe {
+			max-width:100%;
+		}
+
+		> div {
+			margin-bottom: 10px;
+		}
+		a {
+			text-decoration: underline;
+		}
+
+		.project-title {
+			text-transform: uppercase;
+			text-align: center;
+			font-weight: bold;
+			font-size: 20px;
+		}
+	}
+
+	.nav-container {
+		display: table-row;
+		height: 1px;
+	}
+
+	.nav {
+		display: table;
+		table-layout: fixed;
+		margin: auto;
+		width: 100%;
+		max-width: $rowWidth;
+		text-align: center;
+
+		span {
+			display: table-cell;
+			width: 1px;
+			color: white;
+			padding: 0 5px;
+
+			a {
+				background: navy;
+				display: block;
+				padding: 10px 0 5px 0;
+				border: 3px solid navy;
+				border-top: none;
+				border-bottom-left-radius: 10px;
+				border-bottom-right-radius: 10px;
+				font-weight: bold;
+
+				&:hover {
+					background: red;
+					border-color: red;
+				}
+			}
+		}
+	}
+	
+	.center {
+		display: table-row;
+		height: 1px;
+		width: 100%;
+		.center-inner {
+			display: table;
+		}
+	}
+	.project-select {
+		width: 200px;
+		display: table-cell;
+		position: relative;
+		@include perspective(600px);
+		
+		.project-image {
+			position: absolute;
+			bottom: 40px;
+			width: 190px;
+			.project-title {
+				text-transform: uppercase;
+				text-align: center;
+				font-weight: bold;
+				font-size: 30px;
+				color: white;
+				margin-bottom: 20px;
+			}
+			@include transform-style(preserve-3d);
+			img {
+				width: 100%;
+				@include animation(sprites 2s linear 0s infinite alternate);
+			}
+		}
+
+		.shadow {
+			display: block;
+			bottom: 40px;
+			height: 20px;
+			width: 190px;
+		}
+	}
+	#ps1 .project-image {
+		left: 0px;
+	}
+	#ps1 .shadow {
+		box-shadow: 0 30px 10px red;
+		left: 0px;
+	}
+	#ps2 .project-image {
+		right: 0px;
+	}
+	#ps2 .shadow {
+		box-shadow: 0 30px 10px green;
+		right: 0px;
+	}
+
+	.project-selection {
+		max-width: $rowWidth;
+		margin: auto;
+		padding: $pccPadding;
+		display: table-cell;
+
+		.project-cell-container {
+			width: $celldim;
+			height: $celldim;
+			padding: $pccPadding;
+			display: inline-block;
+
+			.project-cell {
+				border: solid 3px navy;
+				background: black;
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				border-radius: 5px;
+				height: 100%;
+				width: 100%;
+				cursor: pointer;
+
+				.project-title, .project-body, .project-github, .project-link, .project-img {
+					display: none;
+				}
+
+				&:hover {
+					@extend .hover;
+				}
+			}
+		}
+	}
+
+	@media (max-width: $phone) {
+		#ps1, #ps2 {
+			display: none;
+		}
+	}
+}

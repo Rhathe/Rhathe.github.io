@@ -1,0 +1,20 @@
+@font-face {
+	font-family: 'Press Start 2P';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Press Start 2P'), local('PressStart2P-Regular'), url(/static/fonts/press_start_2p.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Fugaz One';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Fugaz One'), local('FugazOne-Regular'), url(/static/fonts/fugaz_one.woff) format('woff');
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Open Sans'), local('OpenSans'), url(/static/fonts/open_sans.woff2) format('woff2');
+}

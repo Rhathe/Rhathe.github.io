@@ -1,0 +1,52 @@
+.blog-content {
+	background: $screenColor;
+	flex: 1;
+	text-align: left;
+	padding: 15px;
+	border: 14px solid transparent;
+	border-top: 0;
+	border-bottom: 0;
+	border-image: url('../images/brick.png') 0 14 repeat;
+	overflow: hidden;
+
+	.preview-msg {
+		text-align: center;
+		text-transform: uppercase;
+		background: red;
+		border-radius: 5px;
+		font-weight: bold;
+		padding: 10px;
+		color: white;
+	}
+
+	.read-more, .edit {
+		background: lightgray;
+		padding: 4px 10px;
+		color: gray;
+		margin-top: 20px;
+		display: inline-block;
+	}
+
+	.edit {
+		float: right;
+	}
+
+	.blog-body {
+		a {
+			color: #57A3E8;
+		}
+	}
+
+	.codehilite {
+		overflow: auto;
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: inherit;
+	}
+}

@@ -1,0 +1,51 @@
+@mixin browser($property,$value) {
+	-webkit-#{$property}: $value;
+	-moz-#{$property}: $value;
+	-ms-#{$property}: $value;
+	-o-#{$property}: $value;
+	#{$property}: $value;
+}
+
+@mixin browser2($property,$value) {
+	#{$property}: -webkit-$value;
+	#{$property}: -moz-$value;
+	#{$property}: -ms-$value;
+	#{$property}: -o-$value;
+	#{$property}: $value;
+}
+
+@mixin center-flex($isInline: false) {
+	@if $isInline {
+		display: inline-flex;
+	} @else {
+		display: flex;
+	}
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin not-button {
+	background: none;
+	border: none;
+	font-size: inherit;
+	font-family: inherit;
+	color: inherit;
+	cursor: pointer;
+	text-transform: inherit;
+}
+
+@mixin stretch-height {
+	min-height: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+
+	#content {
+		display: flex;
+		flex: 1;
+		justify-content: center;
+		margin: 0;
+		position: relative;
+	}
+}
+

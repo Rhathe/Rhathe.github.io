@@ -1,0 +1,130 @@
+$animtime: 0.55s;
+
+@mixin slider($start) {
+	@include transform(translate($start,0));
+	-webkit-text-fill-color: navy;
+}
+
+@include keyframes(anim1) {
+	0% {@include slider(100%);}
+	100% {@include slider(0);}
+}
+
+@include keyframes(anim2) {
+	0% {@include slider(-100%);}
+	50% {@include slider(-100%);}
+	100% {@include slider(0);}
+}
+
+@include keyframes(anim3) {
+	0% {@include slider(100%);}
+	66.666% {@include slider(100%);}
+	100% {@include slider(0);}
+}
+
+@include keyframes(anim4) {
+	0% {visibility: hidden;}
+	100% {visibility: hidden;}
+}
+
+#home {
+	background: black;
+	color: white;
+
+	.home-title, .selection {
+		text-align: center;
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+
+	.home-title {
+		font-family: 'Fugaz One', 'Sans Serif';
+		font-size: 100px;
+		@media (max-width: $phone) {
+			font-size: 50px;
+		}
+		@media (min-width: $phone) and (max-width: 650px) {
+			font-size: 77px;
+		}
+		margin-bottom: 40px;
+		white-space: nowrap;
+
+		.ht {
+			position: relative;
+			height: 0.9em;
+			line-height: 1em;
+
+			.ht-inner {
+				color: blue;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+
+			span {
+				position: relative;
+				display: inline-block;
+				background: -webkit-linear-gradient(blue, #bbbbff);
+				&.ht-3 {
+					background: -webkit-linear-gradient(#bbbbff, blue);
+				}
+			}
+			span:after {
+				color: transparent;
+				content: attr(data-text);
+				position: absolute;
+				text-shadow: -4px -5px 2px navy;
+				z-index: -1;
+				left: 0;
+				top: -0.7em;
+			}
+		}
+		.ht-1 {
+			padding-right: 2.2em;
+			@include animation(anim1 $animtime linear);
+		}
+		.ht-2 {
+			@include animation(anim2 $animtime*2 linear);
+		}
+		.ht-3 {
+			padding-left: 1.2em;
+			@include animation(anim3 $animtime*3 linear);
+		}
+	}
+
+	.selection {
+		padding-bottom: 40px;
+		.link {
+			font-size: 20px;
+			@media (max-width: $phone) {
+				font-size: 10px;
+			}
+			margin-top: 20px;
+			a {
+				font-family: 'Press Start 2P', 'Sans Serif';
+				color: aqua;
+				position: relative;
+				&:hover .shadow {
+					display: inline;
+				}
+			}
+		}
+	}
+
+	#footer {
+		display: block;
+		font-family: 'Press Start 2P', 'Sans Serif';
+		color: aqua;
+		font-size: 10px;
+		@media (max-width: $phone) {
+			font-size: 5px;
+		}
+		bottom: 0;
+		position: fixed;
+		background: black;
+	}
+
+	.selection, #footer {
+		@include animation(anim4 $animtime*3+0.2s linear);
+	}
+}
+
